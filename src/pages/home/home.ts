@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ListCoursesPage } from "../list-courses/list-courses";
 
 @Component({
   selector: 'page-home',
@@ -11,4 +12,7 @@ export class HomePage {
 
   }
 
+  goToListCourses(){
+    this.navCtrl.push(ListCoursesPage);
+  }
 }
