@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>list of courses</ion-title>
+    <ion-title>Courses</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,9 +15,17 @@
 
 <ion-content padding>
   <ion-item-group>
-    <ion-item-divider color="light">XML</ion-item-divider>
-    <ion-item *ngFor="let item of xmlItems">
-      {{item.id}}
-    </ion-item>
+      <table style="width:100%">
+        <tr>
+          <th>Course ID</th>
+          <th>Name</th>
+          <th>Credits</th>
+        </tr>
+        <tr *ngFor="let item of courses" (click)="goToDetailCourses(item)">
+          <td>{{item.course_id}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.credits}}</td>
+        </tr>
+      </table>
   </ion-item-group>
 </ion-content>

@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import xml2js from 'xml2js';
@@ -15,27 +14,9 @@ export class CoursesProvider {
 
   data: any;
 
-  constructor(public http: Http) {
+  constructor(public http: HttpClient) {
     this.data = null;
   }
-
-  loadXML(){
-    if(this.data){
-      return Promise.resolve(this.data);
-    }
-
-    return new Promise(resolve => {
-      this.http.get('http://localhost:9000/list')
-        .map(res => res.text())
-        .subscribe((data) => {
-          let myJson = xml2js.xml_str2json(data);
-          this.data = myJson;
-          resolve(this.data);
-          this.data = null;
-        });
-    });
-  }
-
 
   // loadXML(){
   //   if(this.data){
@@ -45,6 +26,57 @@ export class CoursesProvider {
   //   return new Promise(resolve => {
   //     this.http.get('http://localhost:9000/list')
   //       .map((res:Response) => res.text())
+  //       .subscribe((data) => {
+  //         let myJson = xml2js.xml_str2json(data);
+  //         console.log(myJson);
+  //         this.data = myJson;
+  //         resolve(this.data);
+  //         this.data = null;
+  //       });
+  //   });
+  // }
+
+
+  load() {
+    if (this.data) {
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      this.http.get('http://localhost:3000/course')
+        .map(res => res)
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+          this.data = null;
+        });
+    });
+  }
+
+  loadDetails(data) {
+    if (this.data) {
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      this.http.get('http://localhost:3000/courseDetail/'+ data.toString())
+        .map(res => res)
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+          this.data = null;
+        });
+    });
+  }
+
+  // loadXML(){
+  //   if(this.data){
+  //     return Promise.resolve(this.data);
+  //   }
+  //
+  //   return new Promise(resolve => {
+  //     this.http.get('http://localhost:9000/list')
+  //       .map(res => res)
   //       .subscribe((data) =>
   //       {
   //         this.parseXML(data).then((data) =>{

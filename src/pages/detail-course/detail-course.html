@@ -1,0 +1,77 @@
+<!--
+  Generated template for the DetailCoursePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{course.course_id}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Course ID:</ion-label>
+      <ion-label item-right>{{course.course_id}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Title:</ion-label>
+      <ion-label item-right>{{course.title}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Term:</ion-label>
+      <ion-label item-right>{{course.term}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Course Level:</ion-label>
+      <ion-label item-right>{{course.courseLevel}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Capacity:</ion-label>
+      <ion-label item-right>{{course.available}}/{{course.capacity}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Credits:</ion-label>
+      <ion-label item-right>{{course.credits}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>description:</ion-label>
+      <ion-label item-right><p>{{course.description}}</p></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Start Date:</ion-label>
+      <ion-label item-right>{{startDate}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>End Date:</ion-label>
+      <ion-label item-right>{{endDate}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Academic Level:</ion-label>
+      <ion-label item-right>{{course.academicLevel}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Meeting Information:</ion-label>
+      <ion-label item-right><p>{{course.detailMeetingInfo}}</p></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Instructional Method:</ion-label>
+      <ion-label item-right>{{course.instructionalMethod}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Lecturer:</ion-label>
+      <ion-label item-right>{{course.name}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Lecturer e-mail:</ion-label>
+      <ion-label item-right>{{course.emailAddress}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
