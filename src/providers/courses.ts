@@ -69,6 +69,25 @@ export class CoursesProvider {
     });
   }
 
+  loadPreRequisites(data) {
+
+    if (this.data) {
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      this.http.get('http://localhost:3000/coursePre/'+ data.toString())
+        .map(res => res)
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+          this.data = null;
+        });
+    });
+  }
+
+
+
   // loadXML(){
   //   if(this.data){
   //     return Promise.resolve(this.data);

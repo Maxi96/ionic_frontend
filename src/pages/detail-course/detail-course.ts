@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CoursesProvider } from '../../providers/courses';
+import {ViewerPage} from "../viewer/viewer";
+import {PrerequisiteCoursesPage} from "../prerequisite-courses/prerequisite-courses";
 
 /**
  * Generated class for the DetailCoursePage page.
@@ -22,12 +24,15 @@ export class DetailCoursePage {
   //public courses: Array<{course_id: string, title: string, term: string, subject: string, courseLevel: string,capacity : number, available: number, credits: number, description : string, startDate: string, endDate: string, academicLevel :string, detailMeetingInfo:string, instructuralMethods:string, lecturer_id: number, name: string, emailAddress: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public courseProvider: CoursesProvider) {
-    this.course = this.navParams.get("course")
-    this.getCourses();
+    this.course = this.navParams.get("course");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailCoursePage');
+  }
+
+  ionViewWillEnter(){
+    this.getCourses();
   }
 
   getCourses(){
@@ -51,4 +56,11 @@ export class DetailCoursePage {
     return fullString;
   }
 
+  goToViewer(description, data){
+    this.navCtrl.push(ViewerPage, {description:description,data:data});
+  }
+
+  goToPreCourses(data){
+    this.navCtrl.push(PrerequisiteCoursesPage, {course:data});
+  }
 }

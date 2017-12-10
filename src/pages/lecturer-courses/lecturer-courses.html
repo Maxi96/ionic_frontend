@@ -1,0 +1,30 @@
+<!--
+  Generated template for the LecturerCoursesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{lecturer.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item-group>
+    <table style="width:100%">
+      <tr>
+        <th>Course ID</th>
+        <th>Name</th>
+        <th>Credits</th>
+      </tr>
+      <tr *ngFor="let item of courses" (click)="goToDetailCourses(item)">
+        <td>{{item.course_id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.credits}}</td>
+      </tr>
+    </table>
+  </ion-item-group>
+</ion-content>

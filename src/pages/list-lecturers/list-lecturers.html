@@ -1,0 +1,29 @@
+<!--
+  Generated template for the ListLecturersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lecturers</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item-group>
+    <table style="width:100%">
+      <tr>
+        <th>Name</th>
+        <th>e-mail</th>
+      </tr>
+      <tr *ngFor="let item of lecturer" (click)="goToLecturerCourses(item)">
+        <td>{{item.name}}</td>
+        <td>{{item.emailAddress}}</td>
+      </tr>
+    </table>
+  </ion-item-group>
+</ion-content>

@@ -10,13 +10,22 @@ import { HomePage } from '../pages/home/home';
 import { CoursesProvider } from '../providers/courses';
 import { ListCoursesPage } from "../pages/list-courses/list-courses";
 import {DetailCoursePage} from "../pages/detail-course/detail-course";
+import {ViewerPage} from "../pages/viewer/viewer";
+import { LecturerProvider } from '../providers/lecturer';
+import {ListLecturersPage} from "../pages/list-lecturers/list-lecturers";
+import {LecturerCoursesPage} from "../pages/lecturer-courses/lecturer-courses";
+import {PrerequisiteCoursesPage} from "../pages/prerequisite-courses/prerequisite-courses";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListCoursesPage,
-    DetailCoursePage
+    DetailCoursePage,
+    ViewerPage,
+    ListLecturersPage,
+    LecturerCoursesPage,
+    PrerequisiteCoursesPage
   ],
   imports: [
     BrowserModule,
@@ -28,12 +37,17 @@ import {DetailCoursePage} from "../pages/detail-course/detail-course";
     MyApp,
     HomePage,
     ListCoursesPage,
-    DetailCoursePage
+    DetailCoursePage,
+    ViewerPage,
+    ListLecturersPage,
+    LecturerCoursesPage,
+    PrerequisiteCoursesPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     CoursesProvider,
+    LecturerProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
