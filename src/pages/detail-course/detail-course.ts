@@ -37,7 +37,7 @@ export class DetailCoursePage {
   }
 
   getCourses(){
-    this.courseProvider.loadDetails(this.course.course_id)
+    this.courseProvider.loadDetailsXML(this.course.course_id)
       .then(data => {
         this.course = data;
         console.log(this.course);

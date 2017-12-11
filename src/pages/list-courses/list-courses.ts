@@ -34,7 +34,7 @@ export class ListCoursesPage {
   }
 
   getCourses(){
-    this.coursesProvider.load()
+    this.coursesProvider.loadXML()
       .then(data => {
         //let dataCourses = JSON.parse(data);
         this.courses = data;

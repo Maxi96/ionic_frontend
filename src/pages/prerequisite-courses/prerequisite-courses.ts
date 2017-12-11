@@ -31,10 +31,16 @@ export class PrerequisiteCoursesPage {
   }
 
   getCourses(){
-    this.courseProvider.loadPreRequisites(this.course.course_id)
+    // this.courseProvider.loadPreRequisites(this.course.course_id)
+    //   .then(data => {
+    //     this.courses = data;
+    //   });
+
+    this.courseProvider.loadXMLPreRequesite(this.course.course_id)
       .then(data => {
         this.courses = data;
       });
+
   }
 
   goToDetailCourses(item){

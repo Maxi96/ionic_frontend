@@ -18,25 +18,6 @@ export class CoursesProvider {
     this.data = null;
   }
 
-  // loadXML(){
-  //   if(this.data){
-  //     return Promise.resolve(this.data);
-  //   }
-  //
-  //   return new Promise(resolve => {
-  //     this.http.get('http://localhost:9000/list')
-  //       .map((res:Response) => res.text())
-  //       .subscribe((data) => {
-  //         let myJson = xml2js.xml_str2json(data);
-  //         console.log(myJson);
-  //         this.data = myJson;
-  //         resolve(this.data);
-  //         this.data = null;
-  //       });
-  //   });
-  // }
-
-
   load() {
     if (this.data) {
       return Promise.resolve(this.data);
@@ -49,6 +30,44 @@ export class CoursesProvider {
           this.data = data;
           resolve(this.data);
           this.data = null;
+        });
+    });
+  }
+
+  loadXML(){
+    if(this.data){
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      this.http.get('http://localhost::3000/xml/course')
+        .map(res => res)
+        .subscribe((data) =>
+        {
+          this.parseXML(data).then((data) =>{
+            this.data = data;
+            resolve(this.data);
+            this.data = null;
+          })
+        });
+    });
+  }
+
+  loadDetailsXML(data){
+    if(this.data){
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      this.http.get('http://localhost::3000/xml/courseDetail/' + data.toString())
+        .map(res => res)
+        .subscribe((data) =>
+        {
+          this.parseXML(data).then((data) =>{
+            this.data = data;
+            resolve(this.data);
+            this.data = null;
+          })
         });
     });
   }
@@ -88,24 +107,24 @@ export class CoursesProvider {
 
 
 
-  // loadXML(){
-  //   if(this.data){
-  //     return Promise.resolve(this.data);
-  //   }
-  //
-  //   return new Promise(resolve => {
-  //     this.http.get('http://localhost:9000/list')
-  //       .map(res => res)
-  //       .subscribe((data) =>
-  //       {
-  //         this.parseXML(data).then((data) =>{
-  //           this.data = data;
-  //           resolve(this.data);
-  //           this.data = null;
-  //         })
-  //       });
-  //   });
-  // }
+  loadXMLPreRequesite(data){
+    if(this.data){
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      this.http.get('http://localhost::3000/xml/coursePre/'+ data.toString())
+        .map(res => res)
+        .subscribe((data) =>
+        {
+          this.parseXML(data).then((data) =>{
+            this.data = data;
+            resolve(this.data);
+            this.data = null;
+          })
+        });
+    });
+  }
 
   parseXML(data){
     return new Promise(resolve => {
