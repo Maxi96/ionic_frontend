@@ -35,11 +35,19 @@ export class LecturerCoursesPage {
   }
 
   getCourses(){
-    this.lecturerProvider.loadCourses(this.lecturer.lecturer_id)
-      .then(data => {
-        this.courses = data;
-        console.log(this.courses);
-      });
+    if(this.lecturer.lecturer_id == null){
+      this.lecturerProvider.loadCourses(this.lecturer)
+        .then(data => {
+          this.courses = data;
+          console.log(this.courses);
+        });
+    }else {
+      this.lecturerProvider.loadCourses(this.lecturer.lecturer_id)
+        .then(data => {
+          this.courses = data;
+          console.log(this.courses);
+        });
+    }
   }
 
 }

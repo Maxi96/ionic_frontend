@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CoursesProvider } from '../../providers/courses';
 import {ViewerPage} from "../viewer/viewer";
 import {PrerequisiteCoursesPage} from "../prerequisite-courses/prerequisite-courses";
+import {LecturerCoursesPage} from "../lecturer-courses/lecturer-courses";
 
 /**
  * Generated class for the DetailCoursePage page.
@@ -63,4 +64,9 @@ export class DetailCoursePage {
   goToPreCourses(data){
     this.navCtrl.push(PrerequisiteCoursesPage, {course:data});
   }
+
+  goToLecturer(){
+    this.navCtrl.push(LecturerCoursesPage, {"lecturer": this.course.lecturer_id});
+  }
+
 }
