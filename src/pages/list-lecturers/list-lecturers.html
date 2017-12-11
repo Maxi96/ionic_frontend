@@ -21,8 +21,8 @@
         <th>e-mail</th>
       </tr>
       <tr *ngFor="let item of lecturer" (click)="goToLecturerCourses(item)">
-        <td>{{item.name}}</td>
-        <td>{{item.emailAddress}}</td>
+        <td *ngIf="item.name">{{item.name}}</td>
+        <td *ngIf="item.emailAddress">{{item.emailAddress}}</td>
       </tr>
     </table>
   </ion-item-group>

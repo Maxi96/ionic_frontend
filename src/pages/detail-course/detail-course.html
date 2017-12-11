@@ -16,51 +16,51 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item>
+    <ion-item *ngIf="course.course_id">
       <ion-label>Course ID:</ion-label>
       <ion-label item-right>{{course.course_id}}</ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="course.title">
       <ion-label>Title:</ion-label>
       <ion-label item-right>{{course.title}}</ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="course.term">
       <ion-label>Term:</ion-label>
       <ion-label item-right>{{course.term}}</ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="course.courseLevel">
       <ion-label>Course Level:</ion-label>
       <ion-label item-right>{{course.courseLevel}}</ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="course.available">
       <ion-label>Capacity:</ion-label>
       <ion-label item-right>{{course.available}}/{{course.capacity}}</ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="course.credits">
       <ion-label>Credits:</ion-label>
       <ion-label item-right>{{course.credits}}</ion-label>
     </ion-item>
-    <ion-item (click)="goToViewer('Description', course.description)">
+    <ion-item *ngIf="course.description" (click)="goToViewer('Description', course.description)">
       <ion-label>Description:</ion-label>
       <ion-label item-right><p>{{course.description}}</p></ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="startDate">
       <ion-label>Start Date:</ion-label>
       <ion-label item-right>{{startDate}}</ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="endDate">
       <ion-label>End Date:</ion-label>
       <ion-label item-right>{{endDate}}</ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="course.academicLevel">
       <ion-label>Academic Level:</ion-label>
       <ion-label item-right>{{course.academicLevel}}</ion-label>
     </ion-item>
-    <ion-item (click)="goToViewer('Meeting Information',course.detailMeetingInfo)">
+    <ion-item *ngIf="course.detailMeetingInfo" (click)="goToViewer('Meeting Information',course.detailMeetingInfo)">
       <ion-label>Meeting Information:</ion-label>
       <ion-label item-right><p>{{course.detailMeetingInfo}}</p></ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="course.instructionMethods">
       <ion-label>Instructional Method:</ion-label>
       <ion-label item-right>{{course.instructionalMethod}}</ion-label>
     </ion-item>
