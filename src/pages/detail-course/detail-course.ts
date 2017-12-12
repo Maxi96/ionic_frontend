@@ -47,6 +47,7 @@ export class DetailCoursePage {
   }
 
   createDateString(timestamp: any) {
+    timestamp = timestamp + "000";
     let d = new Date(parseInt(timestamp));
     let m = d.getMonth() + 1;
     let year = d.getFullYear();

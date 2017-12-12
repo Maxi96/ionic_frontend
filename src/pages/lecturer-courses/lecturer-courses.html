@@ -14,7 +14,7 @@
 
 <ion-content padding>
   <ion-item-group>
-    <table style="width:100%">
+    <table style="width:100%" *ngIf="courses.length > 0">
       <tr>
         <th>Course ID</th>
         <th>Name</th>
@@ -27,4 +27,9 @@
       </tr>
     </table>
   </ion-item-group>
+
+  <ion-item *ngIf="courses.length <= 0">
+    <ion-label>No courses taught by this lecturer.</ion-label>
+  </ion-item>
+
 </ion-content>

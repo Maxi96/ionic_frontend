@@ -32,7 +32,7 @@
       <ion-label>Course Level:</ion-label>
       <ion-label item-right>{{course.courseLevel}}</ion-label>
     </ion-item>
-    <ion-item *ngIf="course.available">
+    <ion-item *ngIf="course.available > -1">
       <ion-label>Capacity:</ion-label>
       <ion-label item-right>{{course.available}}/{{course.capacity}}</ion-label>
     </ion-item>
@@ -72,11 +72,9 @@
       <ion-label>Lecturer e-mail:</ion-label>
       <ion-label item-right><p>{{course.emailAddress}}</p></ion-label>
     </ion-item>
-    <ion-item (click)="goToPreCourses(course)">
+    <ion-item *ngIf="course.preRequisite"(click)="goToViewer(course)">
       <ion-label>Prequisite Courses</ion-label>
-      <ion-label item-right>
-        <ion-icon name="arrow-forward"></ion-icon>
-      </ion-label>
+      <ion-label item-right>{{course.preRequisite}}</ion-label>
     </ion-item>
   </ion-list>
 

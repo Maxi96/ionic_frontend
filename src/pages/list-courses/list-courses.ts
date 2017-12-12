@@ -17,7 +17,7 @@ import {DetailCoursePage} from "../detail-course/detail-course";
 })
 export class ListCoursesPage {
 
-  public courses: Array<{course_id: string, title: string, term: string, subject: string, courseLevel: string,capacity : number, available: number, credits: number, description : string, startDate: string, endDate: string, academicLevel :string, detailMeetingInfo:string, instructuralMethods:string}>;
+  public courses: Array<{course_id: string, title: string, term: string, subject: string, courseLevel: string,capacity : number, available: number, credits: number, description : string, startDate: string, endDate: string, academicLevel :string, detailMeetingInfo:string, instructuralMethods:string, preRequisite: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams , public coursesProvider: CoursesProvider) {
 
@@ -34,7 +34,7 @@ export class ListCoursesPage {
   }
 
   getCourses(){
-    this.coursesProvider.loadXML()
+    this.coursesProvider.load()
       .then(data => {
         //let dataCourses = JSON.parse(data);
         this.courses = data;

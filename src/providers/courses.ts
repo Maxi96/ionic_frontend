@@ -24,7 +24,7 @@ export class CoursesProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/course')
+      this.http.get('http://35.227.102.126:9000/courses')
         .map(res => res)
         .subscribe(data => {
           this.data = data;
@@ -40,7 +40,7 @@ export class CoursesProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://localhost::3000/xml/course')
+      this.http.get('http://35.227.102.126:9000/xml/courses')
         .map(res => res)
         .subscribe((data) =>
         {
@@ -59,7 +59,7 @@ export class CoursesProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://localhost::3000/xml/courseDetail/' + data.toString())
+      this.http.get('http://35.227.102.126:9000/xml/courseDetail/' + data.toString())
         .map(res => res)
         .subscribe((data) =>
         {
@@ -78,7 +78,7 @@ export class CoursesProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/courseDetail/'+ data.toString())
+      this.http.get('http://35.227.102.126:9000/courseDetail/'+ data.toString())
         .map(res => res)
         .subscribe(data => {
           this.data = data;
@@ -95,7 +95,7 @@ export class CoursesProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/coursePre/'+ data.toString())
+      this.http.get('http://35.227.102.126:9000/coursePre/'+ data.toString())
         .map(res => res)
         .subscribe(data => {
           this.data = data;
@@ -113,7 +113,7 @@ export class CoursesProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://localhost::3000/xml/coursePre/'+ data.toString())
+      this.http.get('http://35.227.102.126:9000/xml/coursePre/'+ data.toString())
         .map(res => res)
         .subscribe((data) =>
         {
@@ -141,16 +141,16 @@ export class CoursesProvider {
           arr.push({
             id                  : item.id[0],
             title               : item.title[0],
-            capacity            : item.capacity[0],
-            status              : item.status[0],
             term                : item.term[0],
+            courseLevel         : item.courseLevel[0],
+            capacity            : item.capacity[0],
+            available           : item.available[0],
             credits             : item.credits[0],
             description         : item.description[0],
             startDate           : item.startDate[0],
             endDate             : item.endDate[0],
             academicLevel       : item.academicLevel[0],
             detailMeetingInfo   : item.detailMeetingInfo[0],
-            location            : item.location[0],
             instructionMethods  : item.instructionMethods[0],
             supplies            : item.supplies[0]
           });

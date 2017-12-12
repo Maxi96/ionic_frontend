@@ -23,7 +23,7 @@ export class LecturerProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/lecturer')
+      this.http.get('http://35.227.102.126:9000/lecturer')
         .map(res => res)
         .subscribe(data => {
           this.data = data;
@@ -39,7 +39,7 @@ export class LecturerProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/lecturer/'+ data.toString())
+      this.http.get('http://35.227.102.126:9000/lecturer/'+ data.toString())
         .map(res => res)
         .subscribe(data => {
           this.data = data;
